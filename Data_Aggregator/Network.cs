@@ -20,7 +20,6 @@ namespace Network
 
         public JObject Search(string term)
         {
-            System.Console.WriteLine("Searching: " + term);
             string url = @"http://catalog.data.gov/api/3/action/package_search?q='" + term + "'";
             string text = client.DownloadString(url);
             return JObject.Parse(text);
