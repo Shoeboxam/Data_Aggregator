@@ -3,6 +3,7 @@ using System.Net;
 using System.IO;
 
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace Network
 {
@@ -18,11 +19,11 @@ namespace Network
             return new StreamReader(path).ReadToEnd();
         }
 
-        public JObject Search(string term)
+        public Data_Aggregator.Database_Listing Search(string term)
         {
             string url = @"http://catalog.data.gov/api/3/action/package_search?q='" + term + "'";
             string text = client.DownloadString(url);
-            return JObject.Parse(text);
+            return JsonConvert.DeserializeObject<Data_Aggregator.Database_Listing>(text);
         }
     }
 }

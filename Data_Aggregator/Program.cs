@@ -22,12 +22,11 @@ namespace Data_Aggregator
                 String query = Console.ReadLine();
 
                 //Retrieve data
-                JObject results = web.Search(query);
+                Database_Listing response = web.Search(query);
 
-                //Extract titles from returned JSON
-                foreach (dynamic database in results["result"]["results"])
+                foreach (dynamic database in response.result.results)
                 {
-                    System.Console.WriteLine(database["name"]);
+                    System.Console.WriteLine(database.name);
                 }
                 System.Console.WriteLine("\n");
             }
