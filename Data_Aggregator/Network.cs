@@ -11,11 +11,10 @@ namespace Network
     {
         WebClient client = new WebClient();
 
-        public String Download(string url)
+        public String Download(string url, string path)
         {
-            string path = @"C:\Users\mike_000\Desktop\index.json";
+            Directory.CreateDirectory(Path.GetDirectoryName(path));
             client.DownloadFile(url, path);
-
             return new StreamReader(path).ReadToEnd();
         }
 

@@ -25,7 +25,7 @@ namespace Data_Aggregator
         public string owner_org { get; set; }
         public string maintainer { get; set; }
         public List<int> relationships_as_object { get; set; }
-        public Boolean _private { get; set; }
+        public Boolean @private { get; set; }
         public string maintainer_email { get; set; }
         public int num_tags { get; set; }
         public string id { get; set; }
